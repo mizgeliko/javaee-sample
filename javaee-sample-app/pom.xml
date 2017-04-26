@@ -21,6 +21,14 @@
             <type>war</type>
         </dependency>
 
+
+        <dependency>
+            <groupId>gd.samples</groupId>
+            <artifactId>javaee-sample-employee-core</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -32,6 +40,13 @@
                 <configuration>
                     <defaultLibBundleDir>lib/</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
+                    <modules>
+                        <webModule>
+                            <groupId>gd.samples</groupId>
+                            <artifactId>javaee-sample-war1</artifactId>
+                            <contextRoot>/javaee-sample</contextRoot>
+                        </webModule>
+                    </modules>
                 </configuration>
             </plugin>
 

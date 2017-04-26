@@ -14,6 +14,8 @@
 
     <modules>
         <module>javaee-sample-employee-model</module>
+        <module>javaee-sample-employee-core</module>
+        <module>javaee-sample-employee-rest</module>
     </modules>
 
 </project>

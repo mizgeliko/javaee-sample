@@ -3,30 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javaee-sample</artifactId>
+        <artifactId>javaee-sample-employee</artifactId>
         <groupId>gd.samples</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javaee-sample-war1</artifactId>
-    <packaging>war</packaging>
+
+    <artifactId>javaee-sample-employee-rest</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>gd.samples</groupId>
-            <artifactId>javaee-sample-employee-rest</artifactId>
+            <artifactId>javaee-sample-employee-core</artifactId>
             <version>${project.version}</version>
-            <!--<type>ejb</type>-->
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
-
         <!--<dependency>-->
-            <!--<groupId>org.jboss.resteasy</groupId>-->
-            <!--<artifactId>resteasy-spring</artifactId>-->
+            <!--<groupId>gd.samples</groupId>-->
+            <!--<artifactId>javaee-sample-employee-model</artifactId>-->
+            <!--<version>${project.version}</version>-->
         <!--</dependency>-->
-
-
     </dependencies>
 
 </project>

@@ -21,7 +21,6 @@
             <type>war</type>
         </dependency>
 
-
         <dependency>
             <groupId>gd.samples</groupId>
             <artifactId>javaee-sample-employee-core</artifactId>

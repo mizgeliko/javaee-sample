@@ -19,11 +19,6 @@
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>gd.samples</groupId>-->
-            <!--<artifactId>javaee-sample-employee-model</artifactId>-->
-            <!--<version>${project.version}</version>-->
-        <!--</dependency>-->
     </dependencies>
 
 </project>

@@ -18,6 +18,7 @@
         <lombok.version>1.16.14.0</lombok.version>
         <junit.version>4.12</junit.version>
         <resteasy.version>2.3.10.Final</resteasy.version>
+        <orika.version>1.5.0</orika.version>
     </properties>
 
     <dependencies>

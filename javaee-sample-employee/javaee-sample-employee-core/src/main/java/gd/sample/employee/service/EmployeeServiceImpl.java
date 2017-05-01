@@ -6,9 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.List;
 
-@ApplicationScoped
 @NoArgsConstructor
+@ApplicationScoped
+// @TransactionAttribute(REQUIRED)
 class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository repository;
@@ -16,6 +18,11 @@ class EmployeeServiceImpl implements EmployeeService {
     @Inject
     public EmployeeServiceImpl(EmployeeRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return repository.findAll();
     }
 
     @Override

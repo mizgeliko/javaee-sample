@@ -25,16 +25,18 @@ public class EmployeeEntity {
     @Temporal(TemporalType.DATE)
     private Date hireDate;
 
-    @OneToMany(orphanRemoval=true, cascade = CascadeType.ALL)
+    @OneToMany(orphanRemoval=true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="owner_id")
     private Set<PhoneEntity> phones;
 
-    @ManyToOne
-    @JoinColumn(name="mrg_id")
-    private EmployeeEntity manager;
+    // @ManyToOne
+    // @JoinColumn(name="mrg_id")
+    // private EmployeeEntity manager;
+    //
+    // @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
+    // private Set<EmployeeEntity> subordinates;
 
-    @OneToMany(mappedBy = "manager")
-    @Basic(fetch=FetchType.LAZY)
-    private Set<EmployeeEntity> subordinates;
+    @Column(name="mrg_id")
+    private Long managerId;
 
 }

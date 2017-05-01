@@ -1,31 +1,38 @@
 package gd.sample.employee.repository;
 
 import gd.sample.employee.annotation.EmployeeQualifier;
+import gd.sample.employee.repository.entities.EmployeeEntity;
 import gd.samples.employee.model.Employee;
-import gd.samples.employee.model.Phone;
+import ma.glasnost.orika.MapperFacade;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
-@ApplicationScoped
+import static java.util.stream.Collectors.toList;
+
+@Stateless
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Inject
     @EmployeeQualifier
-    private EntityManager manager;
+    private EntityManager em;
+
+    @Inject
+    private MapperFacade mapperFacade;
+
+    @Override
+    public List<Employee> findAll() {
+        return em.createQuery("from EmployeeEntity", EmployeeEntity.class).getResultList()
+                .stream().map(e -> mapperFacade.map(e, Employee.class)).collect(toList());
+    }
 
     @Override
     public Employee findEmployeeById(Long employeeId) {
-        Employee emp = new Employee();
-        emp.setId(employeeId);
-        emp.setFirstName("John");
-        emp.setLastName("Doe");
-        emp.setPhones(new HashSet<Phone>(){{
-            add(new Phone(Phone.Type.CELL, "111111", "comment"));
-            add(new Phone(Phone.Type.HOME, "222222", "don't disturb"));
-        }});
-        return emp;
+        EmployeeEntity entity = em.find(EmployeeEntity.class, employeeId);
+        return mapperFacade.map(entity, Employee.class);
     }
+
 }
